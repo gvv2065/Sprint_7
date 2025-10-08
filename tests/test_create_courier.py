@@ -33,4 +33,14 @@ class TestCreateCourier:
         response = Api.create_courier(courier)
         data = assert_response(response, 400)
         assert data.get("message") == "Недостаточно данных для создания учетной записи"
+    
+    @allure.title("При успешном создании возвращается статус 200")
+    def test_create_courier_return_correct_status(self):
+        response = Api.create_courier(generate_courier())
+        assert_response(response, 201)
+        
+    @allure.title("При успешном создании возвращается {{ok: true}}")
+    def test_create_courier_return_correct_status(self):
+        response = Api.create_courier(generate_courier())
+        assert assert_response(response, 201).get("ok") == True
         
