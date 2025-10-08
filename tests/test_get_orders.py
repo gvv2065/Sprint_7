@@ -1,8 +1,6 @@
-import pytest
 import allure
 from api.Api import Api
 from asserts.common_asserts import assert_response
-from data import get_orders_for_success_create
 
 @allure.feature("Список заказов")
 class TestGetOders:    
