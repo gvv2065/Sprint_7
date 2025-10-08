@@ -1,6 +1,7 @@
 import random
 import string
 from models.requests_models import CourierRequest
+from dataclasses import dataclass, replace
 
 def generate_courier() -> CourierRequest: 
     def generate_random_string(length):
@@ -17,3 +18,7 @@ def generate_courier() -> CourierRequest:
     first_name = generate_random_string(10)
 
     return CourierRequest(login, password, first_name)
+
+def generate_courier_without_field(field_to_remove) -> CourierRequest: 
+    courier = generate_courier()
+    return replace(courier, **{field_to_remove: None})
