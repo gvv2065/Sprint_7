@@ -1,4 +1,4 @@
-def assert_response(response):
+def assert_response_200(response):
     return assert_response(response, 200)
     
 def assert_response(response, status_code):
