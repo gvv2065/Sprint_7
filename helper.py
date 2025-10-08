@@ -1,8 +1,8 @@
 import random
 import string
-from models.requests_models import Courier
+from models.requests_models import CourierRequest
 
-def generate_courier() -> Courier: 
+def generate_courier() -> CourierRequest: 
     def generate_random_string(length):
         letters = string.ascii_lowercase
         random_string = ''.join(random.choice(letters) for i in range(length))
@@ -16,4 +16,4 @@ def generate_courier() -> Courier:
     password = generate_random_string(10)
     first_name = generate_random_string(10)
 
-    return Courier(login, password, first_name)
+    return CourierRequest(login, password, first_name)
