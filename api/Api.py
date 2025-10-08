@@ -1,6 +1,6 @@
 import requests 
 from data import Url
-from models.requests_models import CourierRequest
+from models.requests_models import CourierRequest, OrderRequest
 import json
 import allure
 
@@ -22,6 +22,15 @@ class Api:
     def login_courier(login, password) -> requests.Response:
         response = requests.post(Url.COURIER_LOGIN,
             data=json.dumps({"login":login, "password":password}),
+            headers={"Content-Type": "application/json"}
+        )
+        return response
+    
+    @staticmethod
+    @allure.step("api: создание заказа")
+    def create_order(order: OrderRequest) -> requests.Response:
+        response = requests.post(Url.ORDER_CREATE,
+            data=json.dumps(order.__dict__),
             headers={"Content-Type": "application/json"}
         )
         return response
