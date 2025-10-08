@@ -3,8 +3,6 @@ import allure
 from api.Api import Api
 from asserts.common_asserts import assert_response
 from data import get_orders_for_success_create
-from helper import generate_courier, generate_courier_without_field
-from models.requests_models import CourierRequest, OrderRequest
 
 @allure.feature("Создание заказа")
 class TestCreateOder:    
